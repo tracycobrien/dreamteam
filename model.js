@@ -4,25 +4,20 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Create a Schema for capturing clicks. We'll use clickID to update the same clickCounter
-var AdviceSchema = new Schema({
- thing: {
+var bubblySchema = new Schema({
+ activity: {
    type: String
  },
- thingNumber: {
+ id: {
    type: Number
- },
- searchTerm: {
-   type: String
  },
  link: {
    type: String
  }
-
 });
 
 // Create the Model
-var Advice = mongoose.model("Advice", AdviceSchema);
-
+var bubblyModel = mongoose.model("bubblyModel", bubblySchema);
 
 // Export it for use elsewhere
-module.exports = Advice;
+module.exports = bubblyModel;
