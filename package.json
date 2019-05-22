@@ -19,8 +19,10 @@
   "homepage": "https://github.com/tracycobrien/dreamteam#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "init": "^0.1.2",
+    "mongodb": "^3.2.5",
     "mongojs": "^2.6.0",
     "mongoose": "^5.5.9"
   },
