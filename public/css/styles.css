@@ -1,0 +1,45 @@
+.navbar-start {
+    padding-left: 45em;
+}
+
+.navbar-item {
+    padding: 2em;
+}
+
+html {
+    background-image: url("#")
+}
+
+.navbar {
+    background-image: url("#")
+}
+
+.logo {
+    font-family: 'Modak', cursive;
+    display: inline-block; 
+    font-size: 4rem;
+    color: skyblue;
+    padding-left: 1em;
+}
+
+.buttons {
+    float: right;
+    padding: 25em;
+    width: 1em;
+    padding-bottom: 0;
+}
+
+#buttonYes {
+    font-size: 1.6em;
+    right: 3em; 
+}
+
+#buttonNo {
+    font-size: 1.6em;
+    right: 3em;
+}
+
+
+
+
+
