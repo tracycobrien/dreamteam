@@ -33,7 +33,7 @@ app.post('/', function(req, res, next) {
 });
 
 // MongoDB configuration
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/feelgood");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubbly");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
@@ -46,11 +46,12 @@ db.once("open", function() {
 
 // ========== ROUTES ========== //
 
-var Advice = require("./model.js")
-// get one random piece of advice from advice collection
+var bubblyModel = require("./model.js")
+
+// get random activity
 app.get("/random", function(req, res) {
-	var random = Math.floor(Math.random() * 28);
-	Advice.findOne().skip(random)
+	var random = Math.floor(Math.random() * 27);
+	bubblyModel.findOne().skip(random)
 	.exec(function(error, doc) {
 		if (error) {
 			res.send(error);
@@ -60,18 +61,6 @@ app.get("/random", function(req, res) {
 			console.log(doc);
 		}
 	});
-});
-
-var newAdvice = require("./model.js")
-app.post("/api/post", function(req, res) {
-	console.log(req.body);
-	newAdvice.create({
-		thing: req.body.thing,
-		searchTerm: req.body.searchTerm	
-	}).then(function(results) {
-		res.end();
-	});
-
 });
 
 // set the app to listen on port 3000
