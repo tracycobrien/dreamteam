@@ -21,10 +21,15 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
-    "init": "^0.1.2",
     "mongodb": "^3.2.5",
+    "mongo": "^0.1.0",
+    "lint": "^1.1.2",
     "mongojs": "^2.6.0",
-    "mongoose": "^5.5.9"
+    "mongoose": "^5.5.10",
+    "mysql": "^2.17.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0"
+  }
 }
