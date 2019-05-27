@@ -45,6 +45,22 @@
         </div>
     </container>
 
+
+<!--GoogleMapAPI-->
+<div id="map" style="width:70%;height:400px;"></div>
+<script>
+function myMap() {
+  var myCenter = new google.maps.LatLng(33.753746,-84.386330);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 8};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+<script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQjmexIk0ui-r2JNDxbLeFyLTTABPzoio&callback=myMap"></script>
+
+    <!--jquery import-->
     <script src="jquery-3.4.0.min.js"></script>
 </body>
 

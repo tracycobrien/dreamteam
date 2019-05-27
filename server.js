@@ -1,11 +1,8 @@
-// ========== INITIAL SETUP ========== //
-require('dotenv').config()
 // dependencies
 var express = require("express");
 var mongojs = require("mongojs");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-var MongoClient = require("mongodb").MongoClient;
 
 // initialize express
 var app = express();
@@ -27,13 +24,12 @@ app.use(function (req, res, next) {
 });
 
 // MongoDB configuration
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubblyModel");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
  console.log("Mongoose Error: ", err);
 });
-
 db.once("open", function() {
  console.log("Mongoose connection successful.");
 });
