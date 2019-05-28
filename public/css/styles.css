@@ -39,6 +39,16 @@ html {
     right: 3em;
 }
 
+a:hover {
+    text-decoration: underline; 
+    cursor: crosshair;
+}
+
+
+
+
+
+
 
 
 
