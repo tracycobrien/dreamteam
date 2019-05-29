@@ -66,7 +66,7 @@ window.initAdvice = function () {
 	}
 };
 
-}) (jQuery);
+//}) (jQuery);
 
 
 
@@ -76,11 +76,10 @@ displayRandomAdvice();
 $("#topThree").hide();
 // on "show me another thing" button click
 $("#buttonNo").click(function () {
-	displayRandomAdvice();
+	//displayRandomAdvice();
 	$("#weather").hide();
 	$("#topThree").hide();
 	$("#map").hide();
-
 });
 
 // ========== GEOLOCATION ========== //

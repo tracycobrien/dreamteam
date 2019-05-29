@@ -3,10 +3,7 @@ var express = require("express");
 var mongojs = require("mongojs");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-<<<<<<< HEAD
 
-=======
->>>>>>> b6c810929a0ae0c9f44821fb4ee28586a1d5af75
 
 // initialize express
 var app = express();
@@ -28,12 +25,11 @@ app.use(function (req, res, next) {
 });
 
 // MongoDB configuration
-<<<<<<< HEAD
-// mongoose.connect('mongodb+srv://quyenh:<password>@my-first-cluster-q96od.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubbly");
-=======
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubblyModel");
->>>>>>> b6c810929a0ae0c9f44821fb4ee28586a1d5af75
+
 var db = mongoose.connection;
 
 db.on("error", function(err) {

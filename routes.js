@@ -35,6 +35,10 @@ router.get("/activity", function (req, res) {
 	});
 });
 
+router.get("/random", function (req, res) {
+	console.log("Request: "+req);
+});
+
 // post function that allows the user to add a new activity to the database and display
 // app.post("/api/post", function(req, res) {
 // 	bubblyModel.create({
