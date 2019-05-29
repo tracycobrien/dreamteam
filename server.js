@@ -1,5 +1,3 @@
-// ========== INITIAL SETUP ========== //
-
 // dependencies
 var express = require("express");
 var mongojs = require("mongojs");
@@ -9,62 +7,39 @@ var mongoose = require("mongoose");
 // initialize express
 var app = express();
 
-// set up a static folder (public) for the app
-app.use(express.static("public"));
-
-// sets up the express app to handle data parsing
+// data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// allows application to recognize static files in "public" folder
+app.use(express.static("public"));
 
-app.get('/', function(req, res, next) {
-  // Handle the get for this route
-});
-
-app.post('/', function(req, res, next) {
- // Handle the post for this route
+app.use(function (req, res, next) {
+	//Enable cross-origin resource sharing
+	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
 });
 
 // MongoDB configuration
+<<<<<<< HEAD
 mongoose.connect('mongodb+srv://tracy:Lovetohunt44!@cluster0-mtqre.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubbly");
+=======
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubblyModel");
+>>>>>>> b6c810929a0ae0c9f44821fb4ee28586a1d5af75
 var db = mongoose.connection;
 
 db.on("error", function(err) {
  console.log("Mongoose Error: ", err);
 });
-
 db.once("open", function() {
  console.log("Mongoose connection successful.");
 });
 
-// ========== ROUTES ========== //
-
-var bubblyModel = require("./model.js")
-
-// get random activity
-app.get("/random", function(req, res) {
-	var random = Math.floor(Math.random() * 27);
-	bubblyModel.findOne().skip(random)
-	.exec(function(error, doc) {
-		if (error) {
-			res.send(error);
-		}
-		else {
-			res.json(doc);
-			console.log(doc);
-		}
-	});
-});
-
 // set the app to listen on port 3000
-app.listen(process.env.PORT || 3000, function() {
+app.listen(process.env.PORT || 3000, function () {
 	console.log("App running on port 3000");
 });

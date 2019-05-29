@@ -1,23 +1,21 @@
-// Include the Mongoose Dependencies
+// mongoose dependencies
 var mongoose = require("mongoose");
-
 var Schema = mongoose.Schema;
 
-// Create a Schema for capturing clicks. We'll use clickID to update the same clickCounter
 var bubblySchema = new Schema({
+  _id: {
+    type: Number
+  },
  activity: {
    type: String
- },
- id: {
-   type: Number
  },
  link: {
    type: String
  }
 });
 
-// Create the Model
+// create model variable
 var bubblyModel = mongoose.model("bubblyModel", bubblySchema);
 
-// Export it for use elsewhere
+// export the model for router use
 module.exports = bubblyModel;
