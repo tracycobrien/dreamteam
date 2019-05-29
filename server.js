@@ -5,7 +5,6 @@ var express = require("express");
 var mongojs = require("mongojs");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-const mongoose = require('mongoose');
 
 // initialize express
 var app = express();
@@ -34,8 +33,8 @@ app.post('/', function(req, res, next) {
 });
 
 // MongoDB configuration
-mongoose.connect('mongodb+srv://quyenh:<password>@my-first-cluster-q96od.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubbly");
+mongoose.connect('mongodb+srv://tracy:Lovetohunt44!@cluster0-mtqre.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubbly");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
