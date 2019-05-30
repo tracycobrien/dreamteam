@@ -1,12 +1,15 @@
 // dependencies
-var bubblyModel = require("./model.js")
+var bubblyModel = require("./model")
 var express = require("express");
 var router = express.Router();
 var mongojs = require("mongojs");
 var mongoose = require("mongoose");
 
+// require designAdvice file here
+
 // get the home page
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
+	// bubblyModel.insertMany(insert activities here)
 	res.sendStatus(200);
 });
 
@@ -36,13 +39,12 @@ router.get("/activity", function (req, res) {
 });
 
 // post function that allows the user to add a new activity to the database and display
-// app.post("/api/post", function(req, res) {
-// 	bubblyModel.create({
-// 		id: req.body._id,
-// 		activity: req.body.activity,
-//		link: req.body.link
-// 	}).then(function(results) {
-//		console.log(results);
-// 		res.end();
-// 	});
-// });
+router.post("/api/post", function(req, res) {
+	bubblyModel.create({
+		id: req.body._id,
+		activity: req.body.activity,
+		link: req.body.link
+	}).then(function(results) {
+		res.json(results)
+	});
+});

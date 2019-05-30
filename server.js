@@ -3,6 +3,7 @@ var express = require("express");
 var mongojs = require("mongojs");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+const bubbly = require('./model')
 
 // initialize express
 var app = express();
@@ -33,6 +34,8 @@ db.on("error", function(err) {
 db.once("open", function() {
  console.log("Mongoose connection successful.");
 });
+
+
 
 // set the app to listen on port 3000
 app.listen(process.env.PORT || 3000, function () {
