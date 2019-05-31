@@ -25,12 +25,12 @@ app.use(function (req, res, next) {
 });
 
 // MongoDB configuration
-<<<<<<< HEAD
+
 mongoose.connect('mongodb+srv://tracy:Lovetohunt44!@cluster0-mtqre.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubbly");
-=======
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubblyModel");
->>>>>>> b6c810929a0ae0c9f44821fb4ee28586a1d5af75
+
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubblyModel");
+
 var db = mongoose.connection;
 
 db.on("error", function(err) {
