@@ -16,7 +16,7 @@ module.exports = activies = [
     {
     _id: 3, 
 	activity: 'Run through some sprinklers',
-	description: "Centennial Olympic Park is a 21-acre park located in downtown Atlanta, Georgia owned and operated by the Georgia World Congress Center Authority. It was built by the Atlanta Committee for the Olympic Games (ACOG) as part of the infrastructure improvements for the 1996 Summer Olympics.", 
+	description: "Centennial Olympic Park is a 21-acre park located in downtown Atlanta, and operated by the Georgia World Congress Center Authority. It was built by the Atlanta Committee for the Olympic Games (ACOG) as part of the infrastructure improvements for the 1996 Summer Olympics.", 
     link: "www.gwcca.org/park"
     },
     
