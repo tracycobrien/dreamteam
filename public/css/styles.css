@@ -10,11 +10,17 @@
 }
 
 html {
-    background-image: linear-gradient(to right, #DAE2F8 , #D6A4A4);
+    background-image: url('https://www.cabinetmakerwarehouse.com/wp-content/uploads/1485.jpg');
+    background-repeat: no-repeat;
+    background-size: 90em 60em;
+}
+
+background {
+    opacity: 0.1;
 }
 
 .navbar {
-    background-image: url("#");
+    background-image: url('https://www.cabinetmakerwarehouse.com/wp-content/uploads/1485.jpg');
     position: relative;
 }
 
@@ -46,12 +52,14 @@ button {
     background-color: #4678bd;
     font-family: 'Concert One', cursive;
     font-size: 18px;
+    cursor: crosshair;
 }
+
 
 footer {
     color: white;
     font-size: 14px;
-    position: sticky;
+    position: fixed;
     bottom: 0;
 }
 
@@ -59,19 +67,12 @@ h2 {
     font-weight: 700;
 }
 
-<<<<<<< HEAD
 a:hover {
     text-decoration: underline; 
     cursor: crosshair;
+    background-color: black;
 }
 
-
-
-.modal {
-  opacity: 1
-  transition: opacity 300ms ease-in-out
-}
-=======
 #social-media {
     font-size: 16px;
     text-align: center;
@@ -112,7 +113,11 @@ a:hover {
   #contact-info a{
     color: white;
   }
->>>>>>> 83373f25c4deb6be7d2d72940ad4cd8a521d2973
+
+  #bottom {
+  }
+
+
 
 
 

@@ -40,6 +40,6 @@ db.once("open", function() {
 });
 
 // set the app to listen on port 3000
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3001, function () {
 	console.log("App running on port 3000");
 });

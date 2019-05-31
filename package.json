@@ -20,6 +20,7 @@
   "dependencies": {
     "ajax": "0.0.4",
     "body-parser": "^1.19.0",
+    "bulma-modal-fx": "^1.1.1",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "init": "^0.1.2",
