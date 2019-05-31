@@ -1,97 +1,47 @@
 //API Keys
 var googleAPIKey = "AIzaSyCQjmexIk0ui-r2JNDxbLeFyLTTABPzoio";
-var OpenWeatherKey = "8fe124ac5d22d4066383c3b40d0ade7b";
+var OpenWeatherKey = "64b87f674a5617c161ea40740a6dc2f9";
 
-// variables
-var userLat = 33.748997;
-var userLong = -84.387985;
-var userLocation;
+//Main information variables
 var activity;
-var _id;
+var activity_id;
 var link;
+
+//Default latitude and longitude (Prototype Prime)
+var userLat = 33.963491;
+var userLong = -84.221050;
+var userLocation;
+var map;
+var infowindow;
+
+//Weather API variables
 var weather;
-var currentWeather;
+var temperature;
 var humidity;
 
-//function that displays random advice
-function randomAdvice(initAdviceId) {
-	var currentIndex = parseInt($('#advice-number').html());
-	var randomIndex;
-	var randomAdvice;
+//display initial activity
+displayActivity();
 
-	// calculate current index from page
-	if (isNaN(currentIndex)) currentIndex = 0;
-	else currentIndex--;
-
-	if (initAdviceId) {
-		initAdviceId = parseInt(initAdviceId);
-
-		for (var i = 0; i < activies.length; i++) {
-			if (activies[i][0] === initAdviceId) {
-				randomIndex = i;
-				break;
-			}
-		}
-	}
-	else {
-		// select random advice
-		do {
-			randomIndex = Math.floor(Math.random() * activies.length);
-		} while (randomIndex === currentIndex);
-	}
-
-	randomAdvice = activies[randomIndex];
-	adviceHash = '/advice/' + randomAdvice[0];
-
-	$('#advice-number').html(randomAdvice[0]);
-	$('#advice-txt').html(randomAdvice[1]);
-
-	if (history.replaceState) {
-		history.replaceState(null, null, '#' + adviceHash);
-	}
-	else {
-		window.location.hash = adviceHash;
-	}
-}
-
-window.randomAdvice = randomAdvice;
-window.initAdvice = function () {
-	var rx = /\#\/activities\/(\d+)/g;
-	var adviceHash = rx.exec(window.location.hash);
-	if (adviceHash && adviceHash.length > 1) {
-		randomAdvice(adviceHash[1]);
-	}
-	else {
-		randomAdvice();
-	}
-};
-
-}) (jQuery);
-
-
-
-// ========== ON PAGE LOAD ========== //
-// initially show a piece of advice on page load
-displayRandomAdvice();
-$("#topThree").hide();
-// on "show me another thing" button click
-$("#buttonNo").click(function () {
-	displayRandomAdvice();
+//When "next" button is clicked
+$("#next-btn").click(function () {
+	displayActivity();
 	$("#weather").hide();
-	$("#topThree").hide();
 	$("#map").hide();
-
 });
 
-// ========== GEOLOCATION ========== //
+$("#info-btn").click(function () {
+	$("#weather").show();
+	$("#map").show();
+});
+
 
 // function for finding the user's location using browser's geolocation
 function geoFindMe() {
-	// if the user's browser doesn't allow geolocation, console log and alertify the user.
+	// if the user's browser doesn't allow geolocation, alertify the user.
 	if (!navigator.geolocation) {
 		console.log("Sorry, your browser does not support geolocation.");
+		alertify.success("Sorry, your browser does not support geolocation.");
 	}
-
 	// run this function if the user's browser does support geolocation
 	function success(position) {
 		// set the latitude and longitude from the returned response
@@ -100,67 +50,44 @@ function geoFindMe() {
 		console.log(userLat, userLong);
 		latLongConversion();
 		getWeather();
-
-		// let the console log and user know we've got their location
-		//console.log("Thanks! Got your location.")
-		alertify.success("Thanks for sharing your location.");
-		//console.log("lat " + userLat + " long " + userLong);
+		console.log("Thank you! We got your location.")
+		alertify.success("Thank you for sharing your location.");
+		console.log("lat: " + userLat + ", long: " + userLong);
 	}
-
-	// if we can't get the user's location, let them know.
 	function error() {
-		//console.log("Please allow us to locate you!");
+		console.log("Please allow us to locate you!");
 		alertify.success("Please allow us to locate you.");
 	}
-
-	// this is actually getting the current location
 	navigator.geolocation.getCurrentPosition(success, error);
 }
-
-// run the find location function on page load
 geoFindMe();
 
-// ========== FUNCTIONS ========== //
-
-// function for displaying advice randomly from the database
-// sets advice variable, adviceNumber variable, adviceLink variable (if there is a link) and adviceSearchTerm variable (if there are search terms)
-function displayRandomAdvice() {
+//function to display random activity with database
+function displayActivity() {
 	$.ajax({
-		url: "/random",
+		url: "/activity",
 		method: "GET"
 	}).done(function (data) {
 		activity = data.activity;
-		console.log(advice);
-		// display that advice in its div
-		$(".advice").html("<h1>" + advice + "</h1>");
-		adviceNumber = data.thingNumber;
-		// display advice number in its div
-		$(".numberAdvice").html("<h3><i>advice # " + data._id + "  _____</i></h3>");
-		if (data.link) {
-			adviceLink = data.link;
-			//console.log(adviceLink);
-		} else if (data.searchTerm) {
-			adviceSearchTerm = data.searchTerm;
-			console.log(adviceSearchTerm);
-		}
-		randomGradient();
-		doAdvice();
-		$(".gradient-content").empty();
+		console.log(activity);
+		// display it to the html
+		$("#activity_title").html("<h1>" + activity + "</h1>");
+		activity_id = data._id;
+		// display activity number in its div
+		$("#activity_id").html("<h2> Activity number: #" + data._id + " </h2>");
 	});
 };
 
-// function for turning user's lat/long (from browser's geocode) to an address using google's geolocation api.
-// sets userLocation variable to something more searchable
+// function for converting the user's lat/long to an address using Google's Geolocation API
 function latLongConversion(lat, long) {
-	$.ajax({ url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + userLat + "," + userLong + "&key=" + googleGeocodeKey, method: "GET" }).done(function (response) {
-		// drills down and returns the user's city
-		userLocation = response.results[4].address_components[1].short_name;
+	$.ajax({ url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + userLat + "," + userLong + "&key=" + googleAPIKey, method: "GET" }).done(function (response) {
+		// return the user's city
+		userLocation = response.results[0].address_components[2].short_name;
+		console.log(userLocation);
+		console.log(response.results[0].formatted_address);
 	});
 };
 
-// this function uses the user's lat/long plus the current advice's search terms from the database, plugs them into the google places api, and returns top locations nearby as well as the points on the map
-var map;
-var infowindow;
 
 function initMap() {
 	var searchLocation = { lat: userLat, lng: userLong };
@@ -332,33 +259,20 @@ function initMap() {
 	$("#map").hide();
 
 	infowindow = new google.maps.InfoWindow();
-	var service = new google.maps.places.PlacesService(map);
-	service.nearbySearch({
-		location: searchLocation,
-		radius: 10000,
-		keyword: [adviceSearchTerm]
-	}, callback);
 }
 
+//View how many results pop up and create markers for each one
 function callback(results, status) {
 	if (status === google.maps.places.PlacesServiceStatus.OK) {
 		for (var i = 0; i < results.length; i++) {
 			createMarker(results[i]);
 		}
 	}
-	// this drills down and applies information from the top three closest results to the place variables
-	$("#topThree").html("<h1 class='content'><i class='fa fa-globe fa-1x'></i> Top Results</h1>");
-	for (var i = 0; i <= 2; i++) {
-		placeName = results[i].name;
-		vicinity = results[i].vicinity;
-		// and displays it on the page
-		$("#topThree").append("<h2 class='content'>" + placeName + "</h2><h3 class='content'>" + vicinity + "</h3>");
-	};
 }
 
+//Function to create markers for each place
 function createMarker(place) {
 	console.log("markers created");
-	var placeLoc = place.geometry.location;
 	var marker = new google.maps.Marker({
 		map: map,
 		position: place.geometry.location,
@@ -371,33 +285,21 @@ function createMarker(place) {
 	});
 };
 
-function placeSearch() {
-	initMap();
-	$("#weather").show();
-	$("#topThree").show();
-	$("#map").show();
-};
-
-// this function drills down into the map markers and returns information on the top three results to display via text above the map
-function getPlace() {
-
-};
-
-// this is the app to get the user's current city weather data via the open weather map app. this is for some pieces of advice that require going outside.
-function getWeather() {
+//function that retrieves the current weather of user location
+function getWeather(lat, long) {
+	// $.ajax({
+	// 	url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + userLat + "," + userLong + "&key=" + googleAPIKey,
+	// 	method: "GET"
+	// }).then(function (response) {
+	// 	var city = response.results[0].address_components[2].short_name;
+	// 	var state = response.results[0].address_components[4].short_name;
+	// 	console.log("City: " + city, "State: " + state);
 	$.ajax({
-		url: "https://api.wunderground.com/api/" + OpenWeatherKey + "/geolookup/q/" + userLat + "," + userLong + ".json",
+		url: "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&key=" + OpenWeatherKey,
 		method: "GET"
-	}).done(function (response) {
-		$.ajax({ url: "https://api.wunderground.com/api/" + OpenWeatherKey + "/conditions/q/" + response.location.state + "/" + response.location.city + ".json", method: "GET" }).done(function (response) {
-			weather = response.data.current_observation.weather;
-			currentWeather = response.data.current_observation.temperature_string;
-			humidity = response.data.current_observation.relative_humidity;
-		});
-	});
-};
+	}).then(function (result) {
+		console.log(result);
+	})
+}
+// };
 
-function displayWeather() {
-	console.log(weather + " | Current Temp: " + currentWeather + " | " + humidity + " Humidity");
-	$("#weather").html("<h1 class='content'><i class='fa fa-sun-o fa-1x'></i> Local Weather</h1><h3 class='content'>" + weather + " | Current Temp: " + currentWeather + " | " + humidity + " Humidity</h3>");
-};

@@ -21,12 +21,13 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
-    "mongodb": "^3.2.5",
-    "mongo": "^0.1.0",
     "lint": "^1.1.2",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.2.5",
     "mongojs": "^2.6.0",
     "mongoose": "^5.5.10",
-    "mysql": "^2.17.1"
+    "mysql": "^2.17.1",
+    "weather-js": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

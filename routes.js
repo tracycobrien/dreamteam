@@ -5,17 +5,12 @@ var router = express.Router();
 var mongojs = require("mongojs");
 var mongoose = require("mongoose");
 
-// get the home page
+// get html page
 router.get('/', function (req, res, next) {
 	res.sendStatus(200);
 });
 
-// post route handling
-// router.post('/', function (req, res, next) {
-// 	res.sendStatus(200);
-// });
-
-// get one random document from the database without duplicates
+// get one random document from the database
 router.get("/activity", function (req, res) {
 	//get count of how many documents are within bubblyModel
 	bubblyModel.count().exec(function (err, count) {
@@ -34,6 +29,11 @@ router.get("/activity", function (req, res) {
 			});
 	});
 });
+
+// post route handling
+// router.post('/', function (req, res, next) {
+// 	res.sendStatus(200);
+// });
 
 // post function that allows the user to add a new activity to the database and display
 // app.post("/api/post", function(req, res) {
