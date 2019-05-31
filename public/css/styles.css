@@ -6,23 +6,27 @@
     padding: 1em;
     font-size: 18px;
     font-family: 'Paytone One', sans-serif;
-    color: #004078;
+    color: steelblue;
 }
 
 html {
-    background-image: linear-gradient(to right, #DAE2F8 , #D6A4A4);
+    background-image: url('http://cdn.wallpapersafari.com/85/92/xzh7MP.jpg');
+    background-repeat: no-repeat;
+    background-size: 90em 41em;
 }
 
 .navbar {
-    background-image: url("#");
+    background-image: url('#');
     position: relative;
+    background-size: auto;
+    background-color: transparent;
 }
 
 .logo {
     font-family: 'Modak', cursive;
     display: inline-block; 
     font-size: 4rem;
-    color: skyblue;
+    color: steelblue;
     padding-left: 1em;
 }
 #logo-img {
@@ -43,20 +47,28 @@ button {
     color: white;
     margin-bottom: 20px;
     position: relative;
-    background-color: #4678bd;
+    background-color:steelblue;
     font-family: 'Concert One', cursive;
     font-size: 18px;
+    cursor: crosshair;
 }
+
 
 footer {
     color: white;
     font-size: 14px;
-    position: sticky;
+    position: fixed;
     bottom: 0;
 }
 
 h2 {
     font-weight: 700;
+}
+
+a:hover {
+    text-decoration: underline; 
+    cursor: crosshair;
+    background-color: transparent !important;
 }
 
 #social-media {
@@ -98,7 +110,20 @@ h2 {
   }
   #contact-info a{
     color: white;
+    opacity: 1
   }
+
+  #bottom {
+      color: white;
+  }
+
+#weather {
+    background-image: url('#');
+    background-repeat: no-repeat;
+    display: block;
+}
+
+
 
 
 
