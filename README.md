@@ -9,15 +9,23 @@ On load, you are given options of places to go that would be a fun way to spend 
 
 * HTML
 
-* CSS/Bulma
+* CSS
+
+* Bulma CSS Framework
+
+* JavaScript
+
+* jQuery
 
 * MongooseDB
 
-* Mongoose
+* Google Maps API
 
-* Geolocation
+* Google Geolocation API
 
 * Open Weather API
+
+* Alertify.js
 
 # View our project on Heroku
 

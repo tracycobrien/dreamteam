@@ -30,11 +30,6 @@ router.get("/activity", function (req, res) {
 	});
 });
 
-// post route handling
-// router.post('/', function (req, res, next) {
-// 	res.sendStatus(200);
-// });
-
 // post function that allows the user to add a new activity to the database and display
 router.post("/api/post", function (req, res) {
 	bubblyModel.create({

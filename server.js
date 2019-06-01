@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
 });
 
 // MongoDB configuration
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubblyModel");
+mongoose.connect('mongodb+srv://tracy:Lovetohunt44!@cluster0-mtqre.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
 var db = mongoose.connection;
 
