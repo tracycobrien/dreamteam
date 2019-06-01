@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--font awesome-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <!--bulma css framework-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
     <!--alertify-->
-    <link rel="stylesheet" href="css/alertify.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css">
     <!--google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Concert+One|Paytone+One&display=swap" rel="stylesheet">
-    <!--font awesome-->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/alertify.css">
     <!--favicon-->
     <link rel="icon" type="image/png" href="images/bubble-icon.png">
     <!--custom css-->
@@ -29,59 +31,70 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="#">Home</a>
-                <a class="navbar-item" href="#">About</a>
-                <a class="navbar-item" href="#">Invite</a>
+                <a id='about' class="navbar-item" href="#aboutModal">About</a>
             </div>
         </div>
     </nav>
 
-    <!--main container-->
-    <div id="container">
-        <div id="activity_title"></div>
-        <div id="activity_id">
-            <h2>Activity number: # </h2>
-        </div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum exercitationem unde ex, delectus provident
-        ut nobis libero quos in laborum eligendi porro, voluptas deleniti excepturi, reprehenderit sed fugit ullam
-        maxime.
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda, illo. Laboriosam nemo sit quia
-        laudantium sunt sapiente, sed fugit iste veritatis fuga neque ipsam incidunt totam debitis illum
-        repellendus? Neque.
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda, illo. Laboriosam nemo sit quia
-        laudantium sunt sapiente, sed fugit iste veritatis fuga neque ipsam incidunt totam debitis illum
-        repellendus? Neque.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ad temporibus deleniti unde magnam
-        inventore eius iste consequatur fugit, quis non aliquid sint, dignissimos consequuntur dolore, natus qui
-        quisquam amet.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptates blanditiis repudiandae eaque et?
-        Natus, soluta aspernatur eveniet delectus totam maiores blanditiis? Doloribus officia unde delectus
-        accusamus autem voluptatum in.
-        <br>
-        <!--Google Map-->
-        <div id="map" style="width:50%;height:200px;"></div>
-    </div>
+    <div id="activity_title"></div>
+    <div id="activity_id"></div>
+    <div id="activity_description"></div>
+    <div id="activity_link"></div>
+
     <br>
 
-    <!--buttons-->
+    <!--Google Map-->
+    <div id="map" style="width:50%;height:200px;"></div>
+
+    <!--ABOUT MODAL-->
+    <div class="modal" id="aboutModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">About Bubbly</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                Bubbly is Georgia's online tour guide! Here, you will find the best hangout spots and attractions,
+                curated by local Georgians themselves.
+            </section>
+            <footer class="modal-card-foot">
+            </footer>
+        </div>
+    </div>
+
+    <container>
+        <div class="row">
+            <div class="col-md-5" id="gradient">
+                <div style="width:100%; height: 100%" id="gradient-content">
+                    <!-- Retrieved WEATHER data will be dumped here -->
+                    <div id="weather">
+                        <div class="city"></div>
+                        <div class="wind"></div>
+                        <div class="humidity"></div>
+                        <div class="temp"></div>
+                    </div>
+                    <div id="map"></div>
+                </div>
+    </container>
+
+    <br>
     <button id="next-btn"><i class="fa fa-arrow-circle-right"></i> Next</button>
     <br>
-    <button id="info-btn"><i class="fa fa-question-circle"></i> More Info.</button>
-    <br>
-    <br>
-    </div>
+    
 </body>
 
-<footer>
+<!--FOOTER-->
+<footer id='bottom'>
     <div class="row">
         <!--column 1-->
-        <div class="column" style="background-color:#004078;">
+        <div class="column" style="background-color:steelblue;">
             <h2>About</h2>
             <p>Bubbly is Georgia's online tour guide! Here, you will find the best hangout spots and attractions,
                 curated by local Georgians themselves.</p>
         </div>
-
         <!--column 2-->
-        <div class="column" style="background-color:#004078;">
+        <div class="column" style="background-color:steelblue;">
             <h2>Contact</h2>
             <p id="contact-info">
                 <i class="fa fa-map-marker"></i> 147 Technology Pkwy #100, Peachtree Corners, GA 30092 <br>
@@ -89,9 +102,8 @@
                 <i class="fa fa-envelope"></i> <a href="mailto:contact@bubbly.com"> contact@bubbly.com</a>
             </p>
         </div>
-
         <!--column 3-->
-        <div class="column" style="background-color:#004078;">
+        <div class="column" style="background-color:steelblue;">
             <h2>Social Media</h2>
             <p id="social-media">
                 <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i> Instagram</a>
@@ -103,14 +115,21 @@
 </footer>
 
 
+<!--bulma js-->
+<script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
 <!--google maps-->
-<script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQjmexIk0ui-r2JNDxbLeFyLTTABPzoio&callback=myMap"></script>
+<script type="text/javascript" async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQjmexIk0ui-r2JNDxbLeFyLTTABPzoio&callback=myMap"></script>
 <!--alertify-->
 <script src="js/alertify.min.js"></script>
 <!--jquery import-->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!--custom javascript-->
+<!-- <script src="js/designAdvice.js"></script> -->
 <script src="js/logic.js"></script>
+
+<script type="text/javascript">
+</script>
 
 </html>

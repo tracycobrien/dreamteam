@@ -3,6 +3,7 @@ var express = require("express");
 var mongojs = require("mongojs");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+const bubblyModel = require('./model')
 
 // initialize express
 var app = express();
@@ -25,6 +26,7 @@ app.use(function (req, res, next) {
 
 // MongoDB configuration
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bubblyModel");
+
 var db = mongoose.connection;
 
 db.on("error", function(err) {

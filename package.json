@@ -1,7 +1,7 @@
 {
   "name": "dreamteam",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bubbly is an application with ideas about fun and exciting things to do in and around Atlanta, Georgia. We hope you enjoy exploring the city!",
   "main": "model.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,16 +21,13 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
-    "lint": "^1.1.2",
     "mongo": "^0.1.0",
     "mongodb": "^3.2.5",
     "mongojs": "^2.6.0",
-    "mongoose": "^5.5.10",
+    "mongoose": "^5.5.11",
     "mysql": "^2.17.1",
-    "weather-js": "^2.0.0"
+    "validator": "^11.0.0"
   },
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-plugin-react": "^7.13.0"
-  }
+  "devDependencies": {},
+  "keywords": []
 }
