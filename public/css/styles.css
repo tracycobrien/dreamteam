@@ -11,18 +11,18 @@
 p, h1, h2, #activity_link {
  color: black;
  font-family: 'Montserrat', sans-serif;
- font-weight: bold;
+ font-weight: bolder;
  font-size: 17px;
  padding: 0;
  margin: 0;
- background-color: rgba(grey, 0, 0, 0.6);
+ background-color: rgba(grey, 0, 0, 0.6); 
 }
 
 
 #weather {
     color: black;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 17px;
 }
 
@@ -119,11 +119,13 @@ a:hover {
 #social-media {
     font-size: 16px;
     text-align: center;
+
 }
 
 #social-media i, a {
     color: black;
     padding-right: 10px;
+    font-weight: bolder;
 }
 #social-media a:hover {
     color:white;
@@ -176,6 +178,12 @@ a:hover {
 .ajs-message {
 background-color: salmon !important;
 }
+
+
+
+
+
+
 
 
 
