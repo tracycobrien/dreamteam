@@ -67,10 +67,6 @@ footer {
     width: 100%;
 }
 
-h2 {
-    font-weight: 700;
-}
-
 a:hover {
     text-decoration: underline; 
     cursor: crosshair;
@@ -127,6 +123,10 @@ a:hover {
     background-image: url('#');
     background-repeat: no-repeat;
     display: block;
+}
+
+#map {
+    height: 400px;
 }
 
 

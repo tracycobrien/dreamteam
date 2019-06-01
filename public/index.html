@@ -20,68 +20,44 @@
     <link rel="icon" type="image/png" href="images/bubble-icon.png">
     <!--custom css-->
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
-    <title>Bubbly - Atlanta's Online Tour Guide</title>
+    <title>Bubbly</title>
 </head>
 
 <body>
 
-    <!--navigation bar-->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <h1 class='logo'>Bubbly</h1> <img id="logo-img" src="images/happy-icon.png">
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="#">Home</a>
-                <a id='about' class="navbar-item" href="#aboutModal">About</a>
-            </div>
-        </div>
-    </nav>
-
-    <div id="activity_title"></div>
-    <div id="activity_id"></div>
-    <div id="activity_description"></div>
-    <div id="activity_link"></div>
-
-    <br>
+    <!--Logo-->
+    <h1 class='logo'>Bubbly </h1> <img id="logo-img" src="images/happy-icon.png">
 
     <!--Google Map-->
-    <div id="map" style="width:50%;height:200px;"></div>
+    <div id="map"></div>
+    <br>
 
-    <!--ABOUT MODAL-->
-    <div class="modal" id="aboutModal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">About Bubbly</p>
-                <button class="delete" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                Bubbly is Georgia's online tour guide! Here, you will find the best hangout spots and attractions,
-                curated by local Georgians themselves.
-            </section>
-            <footer class="modal-card-foot">
-            </footer>
+    <!--Activity Information-->
+    <div id="activity_title"></div>
+    <div id="activity_id"></div>
+    <br>
+    <div id="activity_description"></div>
+    <br>
+    <div id="activity_link"></div>
+    <br>
+
+    <!--Weather Information-->
+    <div class="row">
+        <div class="col-md-5" id="gradient">
+            <div id="weather">
+                <div class="city"></div>
+                <div class="temp"></div>
+                <div class="humidity"></div>
+                <div class="wind"></div>
+            </div>
         </div>
     </div>
 
-    <container>
-        <div class="row">
-            <div class="col-md-5" id="gradient">
-                <div style="width:100%; height: 100%" id="gradient-content">
-                    <!-- Retrieved WEATHER data will be dumped here -->
-                    <div id="weather">
-                        <div class="city"></div>
-                        <div class="wind"></div>
-                        <div class="humidity"></div>
-                        <div class="temp"></div>
-                    </div>
-                    <div id="map"></div>
-                </div>
-    </container>
-
     <br>
+    <!--Next Button-->
     <button id="next-btn"><i class="fa fa-arrow-circle-right"></i> Next</button>
     <br>
-    
+
 </body>
 
 <!--FOOTER-->
@@ -126,10 +102,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!--custom javascript-->
-<!-- <script src="js/designAdvice.js"></script> -->
 <script src="js/logic.js"></script>
-
-<script type="text/javascript">
-</script>
 
 </html>

@@ -9,22 +9,6 @@ var userLocation;
 var map;
 var infowindow;
 
-// //display initial activity
-// displayActivity();
-
-// //When "next" button is clicked
-// $("#next-btn").click(function () {
-// 	displayActivity();
-// 	$("#weather").hide();
-// 	$("#map").hide();
-// });
-
-// $("#info-btn").click(function () {
-// 	$("#weather").show();
-// 	$("#map").show();
-// });
-
-
 // function for finding the user's location using browser's geolocation
 function geoFindMe() {
 	// if the user's browser doesn't allow geolocation, alertify the user.
@@ -52,22 +36,6 @@ function geoFindMe() {
 }
 geoFindMe();
 
-//function to display random activity with database
-// function displayActivity() {
-// 	$.ajax({
-// 		url: "/activity",
-// 		method: "GET"
-// 	}).done(function (data) {
-// 		activity = data.activity;
-// 		console.log(activity);
-// 		// display it to the html
-// 		$("#activity_title").html("<h1>" + activity + "</h1>");
-// 		activity_id = data._id;
-// 		// display activity number in its div
-// 		$("#activity_id").html("<h2> Activity number: #" + data._id + " </h2>");
-// 	});
-// };
-
 // function for converting the user's lat/long to an address using Google's Geolocation API
 function latLongConversion(lat, long) {
 	$.ajax({ url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + userLat + "," + userLong + "&key=" + googleAPIKey, method: "GET" }).done(function (response) {
@@ -78,11 +46,13 @@ function latLongConversion(lat, long) {
 	});
 };
 
+// function that initializes the google api map
 function myMap() {
 	var searchLocation = { lat: userLat, lng: userLong };
-	map = new google.maps.Map(document.getElementById('map'), {
+	map = new google.maps.Map(document.getElementById("map"), {
 		center: searchLocation,
 		zoom: 11,
+		//styling
 		styles: [
 			{
 				"elementType": "geometry",
@@ -281,10 +251,10 @@ function getWeather() {
 		method: "GET"
 	}).then(function (response) {
 		// Transfer content to HTML
-		$(".city").html("<h1>" + response.name + " Weather Details</h1>");
-		$(".wind").text("Wind Speed: " + response.wind.speed);
+		$(".city").html("<h1>" + "Today's Weather in " + response.name + ": </h1>");
+		$(".temp").text("Temperature (F): " + response.main.temp);
 		$(".humidity").text("Humidity: " + response.main.humidity);
-		$(".temp").text("Temperature (F) " + response.main.temp);
+		$(".wind").text("Wind Speed: " + response.wind.speed);
 
 		// Log the data in the console as well
 		console.log("Wind Speed: " + response.wind.speed);
@@ -301,7 +271,6 @@ const activities = [
 		description: "Founded in 1926, the Atlanta History Center located in Buckhead is an all-inclusive 32-acre destination featuring the Atlanta History Museum, one of the Southeast's largest history museums; two historic houses, the 1928 Swan House and the Smith Family Farm. It features 32 acres of gardens, wildlife trails and woodland areas.",
 		link: "www.atlantahistorycenter.com"
 	},
-
 	{
 		_id: 2,
 		activity: 'Get some sunshine',
@@ -332,21 +301,18 @@ const activities = [
 		description: "Zoo Atlanta is one of the oldest zoos in the United States. While animal displays draw visitors, animal research and conservation studies are also important activities of the zoo. An abundance of animals and plant species are found at the zoo, including 50 species of bird and 40 species of mammal -- over 1,300 animals in total.",
 		link: "zooatlanta.org"
 	},
-
 	{
 		_id: 7,
 		activity: "Fake News",
 		description: "CNN Studio Tours Journey into the heart of CNN Worldwide and get an up-close look at global news in the making! Inside CNN is a 55 minute guided walking tour with exclusive views of Atlanta's CNN studios and an exciting glimpse of news and broadcasting in action from the world headquarters of the Worldwide Leader in News.",
 		link: "tours.cnn.com"
 	},
-
 	{
 		_id: 8,
 		activity: 'Prehistoric Times',
 		description: "Fernbank Museum of Natural History - Where Science, Nature and Fun Make History.",
 		link: "www.fernbankmuseum.org"
 	},
-
 	{
 		_id: 9,
 		activity: "Let's do some scenic biking",
@@ -359,7 +325,6 @@ const activities = [
 		description: "The Center for Puppetry Arts, is the largest organization in America dedicated to the art form of puppetry. It focuses on three areas: performance, education and museum. It is one of the last of these museums in the World.",
 		link: "www.puppet.org"
 	},
-
 	{
 		_id: 11,
 		activity: 'I got my boat shoes on',
@@ -384,26 +349,24 @@ const activities = [
 		description: "Nitro Zone offers multiple activities along with food and alcoholic beverages. You can bowl, climb a ropes course, drive go karts, jump on their trampolines, play games at the arcade and/or play a round of bazooka ball. It is fun for the whole family.",
 		link: "www.nitrozone.com"
 	},
-
 	{
 		_id: 15,
 		activity: 'Broke college art students live here',
 		description: "SCAD Museum of Fashion and Film. This is the only museum in the Southeast dedicated to fashion and film.",
-		link: "www.round1usa.com"
+		link: "www.scadfash.org"
 	},
 	{
 		_id: 16,
 		activity: 'Bring your quarters',
 		description: "Round One Entertainmentis a Japan-based amusement store chain. The amusement centers offer a variety of bowling, karaoke, video game arcade cabinets and redemption games, billiards, darts, and ping pong while serving a variety of food and beverages.",
-		link: "www.battleandbrew.com"
+		link: "www.round1usa.com"
 	},
 	{
 		_id: 17,
 		activity: 'Nothing beats gaming and beer',
 		description: "Battle and Brew. Gamers' bar for Xbox & PC tournaments plus weekly geek trivia, with a full bar & pub-grub men",
-		link: "www.scadfash.org"
+		link: "www.battleandbrew.com"
 	},
-
 	{
 		_id: 18,
 		activity: 'Sip coffee, pet cats',
@@ -416,7 +379,6 @@ const activities = [
 		description: "The Georgia Aquarium is one of the largest aquariums in the world. It houses more than a hundred thousand animals and represents several thousand species, all of which reside in 10 million gallons of marine and salt water.",
 		link: "www.georgiaaquarium.org"
 	},
-
 	{
 		_id: 20,
 		activity: "How 'bout some football?",
@@ -474,6 +436,7 @@ const activities = [
 	},
 ]
 
+// create a variable that holds a randomized activity object
 var randomizedActivity = activities[Math.floor(Math.random() * activities.length)];
 console.log(randomizedActivity);
 
@@ -482,10 +445,10 @@ var title = randomizedActivity.activity;
 var description = randomizedActivity.description;
 var link = randomizedActivity.link;
 
+// when the "next" button is click, randomly generate and display a new activity object
 $("#next-btn").on("click", function () {
 	//reset the random activity
 	randomizedActivity = activities[Math.floor(Math.random() * activities.length)];
-
 	console.log(randomizedActivity);
 
 	activity_id = randomizedActivity._id;
@@ -498,9 +461,9 @@ $("#next-btn").on("click", function () {
 	$("#activity_title").html("<h1>" + title + "</h1>");
 	$("#activity_link").attr('href', link);
 	$("#activity_link").html(link);
-
 });
 
+//display initial activity information
 $("#activity_description").append("<p>" + description + "</p>");
 $("#activity_id").append("<h2>Activity number: # " + activity_id + "</h2>");
 $("#activity_title").append("<h1>" + title + "</h1>");
