@@ -1,16 +1,49 @@
-.navbar-start {
+/*.navbar-start {
     padding-left: 40em;
-}
+}*/
 
-.navbar-item {
+/*.navbar-item {
     padding: 1em;
     font-size: 18px;
     font-family: 'Paytone One', sans-serif;
     color: steelblue;
+}*/
+p, h1, h2, #activity_link {
+ color: black;
+ font-family: 'Montserrat', sans-serif;
+ font-weight: bold;
+ font-size: 17px;
+ padding: 0;
+ margin: 0;
+ background-color: rgba(grey, 0, 0, 0.6);
+}
+
+
+#weather {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#info {
+    background-color: rgba(grey, 0, 0, 0.6) ;
+    border: 2px solid black;
+}
+
+#map {
+   height: 300px !important;
 }
 
 html {
-    
+    background-image: url('http://paperlief.com/images/pixel-background-wallpaper-2.jpg');
+   /* background-color: skyblue;*/
+    background-repeat: no-repeat;
+    background-size: 1440px 890px;
+}
+
+body {
+    line-height: 1.4;
 }
 
 button:hover { 
@@ -20,19 +53,21 @@ a:hover {
     cursor: pointer;
 }
 
-.navbar {
+/*.navbar {
     background-image: url('#');
     position: relative;
     background-size: auto;
     background-color: transparent;
-}
+}*/
 
 .logo {
     font-family: 'Modak', cursive;
     display: inline-block; 
-    font-size: 4rem;
-    color: steelblue;
+    font-size: 4rem !important;
+    font-weight: normal  !important;
+    color: turquoise;
     padding-left: 1em;
+    background-color: transparent !important;
 }
 #logo-img {
     height: 70px;
@@ -52,7 +87,7 @@ button {
     color: white;
     margin-bottom: 20px;
     position: relative;
-    background-color:steelblue;
+    background-color:turquoise;
     font-family: 'Concert One', cursive;
     font-size: 18px;
     cursor: crosshair;
@@ -62,9 +97,11 @@ button {
 footer {
     color: white;
     font-size: 14px;
-    position: fixed;
+    position: relative;
+    left: 0;
     bottom: 0;
     width: 100%;
+    background-color: turquoise;
 }
 
 a:hover {
@@ -73,17 +110,25 @@ a:hover {
     background-color: transparent !important;
 }
 
+a:hover {
+    text-decoration: underline; 
+    cursor: crosshair;
+    background-color: black;
+}
+
 #social-media {
     font-size: 16px;
     text-align: center;
 }
 
 #social-media i, a {
-    color: white;
+    color: black;
     padding-right: 10px;
 }
 #social-media a:hover {
     color:white;
+    opacity: 0.8;
+
 }
 
 /* Create three equal columns that floats next to each other */
@@ -91,7 +136,6 @@ a:hover {
     float: left;
     width: 33.33%;
     padding: 10px;
-    height: 50px;
   }
   .column h2 {
       text-align: center;
@@ -111,26 +155,26 @@ a:hover {
     }
   }
   #contact-info a{
-    color: white;
-    opacity: 1
+    opacity: 1;
+    bottom: 0;
+
   }
 
   #bottom {
-      color: white;
+      background-color: turquoise;
   }
-
-#weather {
-    background-image: url('#');
-    background-repeat: no-repeat;
-    display: block;
-}
 
 #map {
     height: 400px;
 }
 
-#map a {
-    color: black;
+#next-btn:hover{
+    cursor: crosshair;
+    opacity: 0.9;
+}
+
+.ajs-message {
+background-color: salmon !important;
 }
 
 
