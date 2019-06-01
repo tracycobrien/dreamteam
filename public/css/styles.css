@@ -129,6 +129,10 @@ a:hover {
     height: 400px;
 }
 
+#map a {
+    color: black;
+}
+
 
 
 
