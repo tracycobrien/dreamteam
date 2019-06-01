@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css">
     <!--google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />\
     <link href="https://fonts.googleapis.com/css?family=Concert+One|Paytone+One&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="css/alertify.css">
@@ -33,26 +36,27 @@
     <br>
 
     <!--Activity Information-->
-    <div id="activity_title"></div>
-    <div id="activity_id"></div>
-    <br>
-    <div id="activity_description"></div>
-    <br>
-    <div id="activity_link"></div>
-    <br>
+    <container id='info'>
+        <div id="activity_title"></div>
+        <div id="activity_id"></div>
+        <br>
+        <div id="activity_description"></div>
+        <br>
+        <div id="activity_link"></div>
+        <br>
 
-    <!--Weather Information-->
-    <div class="row">
-        <div class="col-md-5" id="gradient">
-            <div id="weather">
-                <div class="city"></div>
-                <div class="temp"></div>
-                <div class="humidity"></div>
-                <div class="wind"></div>
+        <!--Weather Information-->
+        <div class="row">
+            <div class="col-md-5" id="gradient">
+                <div id="weather">
+                    <div class="city"></div>
+                    <div class="temp"></div>
+                    <div class="humidity"></div>
+                    <div class="wind"></div>
+                </div>
             </div>
         </div>
-    </div>
-
+    </container>
     <br>
     <!--Next Button-->
     <button id="next-btn"><i class="fa fa-arrow-circle-right"></i> Next</button>
@@ -64,13 +68,13 @@
 <footer id='bottom'>
     <div class="row">
         <!--column 1-->
-        <div class="column" style="background-color:steelblue;">
+        <div class="column" style="background-color:turquoise;">
             <h2>About</h2>
             <p>Bubbly is Georgia's online tour guide! Here, you will find the best hangout spots and attractions,
                 curated by local Georgians themselves.</p>
         </div>
         <!--column 2-->
-        <div class="column" style="background-color:steelblue;">
+        <div class="column" style="background-color:turquoise;">
             <h2>Contact</h2>
             <p id="contact-info">
                 <i class="fa fa-map-marker"></i> 147 Technology Pkwy #100, Peachtree Corners, GA 30092 <br>
@@ -79,7 +83,7 @@
             </p>
         </div>
         <!--column 3-->
-        <div class="column" style="background-color:steelblue;">
+        <div class="column" style="background-color:turquoise;">
             <h2>Social Media</h2>
             <p id="social-media">
                 <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i> Instagram</a>
@@ -103,5 +107,15 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!--custom javascript-->
 <script src="js/logic.js"></script>
+
+<script>
+    $("#activity_link").on("click", function () {
+
+        for (i = 0; i < activities.length; i++) {
+            var link = activities[i].link;
+        }
+        window.open();
+    });
+</script>
 
 </html>
