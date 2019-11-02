@@ -24,7 +24,7 @@
     "mongo": "^0.1.0",
     "mongodb": "^3.2.5",
     "mongojs": "^2.6.0",
-    "mongoose": "^5.5.11",
+    "mongoose": "^5.7.5",
     "mysql": "^2.17.1",
     "validator": "^11.0.0"
   },
